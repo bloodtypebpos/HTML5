@@ -34,13 +34,36 @@
       overflow: hidden;
     }
 
-    header {
-      grid-column: 1 / 3;
-      display: flex; align-items: center; justify-content: center;
-      padding: 0 var(--pad); border-bottom: 1px solid #e5e5e5; 
-      font-weight: 700; font-size: clamp(18px, 3.2vh, 28px); letter-spacing: .02em;
-      background: #fff;
-    }
+	header {
+	  grid-column: 1 / 3;
+	  display: grid;
+	  grid-template-columns: 1fr 1fr 1fr;  /* three equal zones */
+	  align-items: center;
+	  text-align: center;
+	  padding: 0 16px;
+	  border-bottom: 1px solid #e5e5e5;
+	  font-weight: 600;
+	  font-size: clamp(18px, 3.2vh, 28px);
+	  background: #fff;
+	}
+
+	.hdr-left {
+	  text-align: left;
+	  font-weight: 700;
+	  color: #0b6efd;
+	}
+
+	.hdr-center {
+	  text-align: center;
+	  font-weight: 700;
+	}
+
+	.hdr-right {
+	  text-align: right;
+	  font-weight: 500;
+	  color: #666;
+	  font-size: clamp(14px, 2.4vh, 20px);
+	}
 
     main {
       display: contents; /* so children become grid cells */
@@ -116,7 +139,11 @@
 <body>
   <div class="wrap">
     <!-- Header -->
-    <header id="title">EM153 | Inner Column Prep</header>
+    <header id="header">
+	  <div class="hdr-left" id="assemblyName">EM153</div>
+	  <div class="hdr-center" id="pageTitle">Step 1 – Inner Column Prep</div>
+	  <div class="hdr-right" id="sectionName">Column Assembly</div>
+	</header>
 
     <!-- Main - Left (Text) -->
     <main>
@@ -140,6 +167,22 @@
           Pinch to zoom and drag to rotate the 3D model on the right. Double-tap to focus.
           Animations (if present) can be started with the Play button we’ll add on later pages.
         </p>
+		
+		
+		<!-- Example inside .left -->
+		<p>
+		  Tighten fasteners to spec (see 
+		  <a href="#" class="img-pop" data-img="images/torque-chart.png" data-caption="Torque Chart – M6 hardware (dry).">torque chart</a>
+		  ).
+		</p>
+
+		<p>
+		  Reference the wiring layout (
+		  <a href="#" class="img-pop" data-img="images/wiring-overview.jpg" data-caption="Wiring overview for main cabinet.">wiring overview</a>
+		  ).
+		</p>
+		
+		
       </section>
 
       <!-- Main - Right (Viewer) -->
